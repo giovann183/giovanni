@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Study Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container" class="toast-container"></div>
+
+<!-- ===================== AUTH SCREEN ===================== -->
+<div id="auth-screen" class="auth-screen">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="auth-logo">📘</div>
+      <h1>Study Planner</h1>
+      <p>Atur jadwal, tugas, dan waktu belajarmu di satu tempat.</p>
+    </div>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login">Masuk</button>
+      <button class="auth-tab" data-tab="register">Daftar</button>
+    </div>
+
+    <form id="login-form" class="auth-form">
+      <label>Nama pengguna
+        <input type="text" id="login-username" autocomplete="username" placeholder="cth. gio">
+      </label>
+      <label>Password
+        <input type="password" id="login-password" autocomplete="current-password" placeholder="••••••••">
+      </label>
+      <p class="form-error" id="login-error"></p>
+      <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+    </form>
+
+    <form id="register-form" class="auth-form hidden">
+      <label>Nama pengguna
+        <input type="text" id="register-username" autocomplete="username" placeholder="cth. gio">
+      </label>
+      <label>Password
+        <input type="password" id="register-password" autocomplete="new-password" placeholder="Minimal 4 karakter">
+      </label>
+      <label>Ulangi password
+        <input type="password" id="register-password2" autocomplete="new-password" placeholder="Ulangi password">
+      </label>
+      <p class="form-error" id="register-error"></p>
+      <button type="submit" class="btn btn-primary btn-block">Buat Akun</button>
+    </form>
+
+    <button id="guest-btn" class="btn btn-ghost btn-block">Coba tanpa akun (mode tamu)</button>
+  </div>
+</div>
+
+<!-- ===================== APP SHELL ===================== -->
+<div id="app-shell" class="app-shell hidden">
+
+  <!-- SIDEBAR (desktop) -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="sidebar-logo">📘</span>
+      <span class="sidebar-title">Study Planner</span>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-route="dashboard"><span>🏠</span>Dashboard</button>
+      <button class="nav-item" data-route="schedule"><span>📚</span>Jadwal Pelajaran</button>
+      <button class="nav-item" data-route="study"><span>📖</span>Jadwal Belajar</button>
+      <button class="nav-item" data-route="tasks"><span>📝</span>Tugas</button>
+      <button class="nav-item" data-route="reminders"><span>🔔</span>Pengingat<span class="nav-badge" id="nav-reminder-badge"></span></button>
+      <button class="nav-item" data-route="calendar"><span>📅</span>Kalender</button>
+      <button class="nav-item" data-route="stats"><span>📊</span>Statistik</button>
+      <button class="nav-item" data-route="settings"><span>⚙️</span>Pengaturan</button>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="logout-btn" class="btn btn-ghost btn-block">🚪 Keluar</button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <header class="topbar">
+      <button id="hamburger-btn" class="hamburger" aria-label="Menu">☰</button>
+      <div class="topbar-title" id="topbar-title">Dashboard</div>
+      <button id="theme-toggle-btn" class="icon-btn" aria-label="Ganti tema">🌙</button>
+    </header>
+    <div id="view-container" class="view-container"></div>
+  </main>
+
+  <!-- BOTTOM NAV (mobile) -->
+  <nav class="bottom-nav">
+    <button class="bnav-item active" data-route="dashboard"><span>🏠</span></button>
+    <button class="bnav-item" data-route="schedule"><span>📚</span></button>
+    <button class="bnav-item" data-route="tasks"><span>📝</span></button>
+    <button class="bnav-item" data-route="reminders"><span>🔔</span><span class="nav-badge" id="nav-reminder-badge-m"></span></button>
+    <button class="bnav-item" data-route="settings"><span>⚙️</span></button>
+  </nav>
+</div>
+
+<!-- ===================== MODAL ROOT ===================== -->
+<div id="modal-root"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
